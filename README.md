@@ -1,46 +1,60 @@
-![PatternLockView](https://github.com/aritraroy/PatternLockView/blob/master/screenshots/pattern-lock-view-banner.png?raw=true)
-
 # PatternLockView
 An easy-to-use, customizable, Material Design ready Pattern Lock view for Android.
 
-### Specs
-[ ![Download](https://api.bintray.com/packages/aritraroy/maven/patternlockview/images/download.svg) ](https://bintray.com/aritraroy/maven/patternlockview/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=14) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PatternLockView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5515)
+[![](https://jitpack.io/v/kimoandroid/PatternLockView.svg)](https://jitpack.io/#kimoandroid/PatternLockView)
+[![](https://jitci.com/gh/kimoandroid/PatternLockView/svg)](https://jitci.com/gh/kimoandroid/PatternLockView)
+[![Build](https://github.com/kimoandroid/PatternLockView/actions/workflows/android.yml/badge.svg)](https://github.com/kimoandroid/PatternLockView/actions/workflows/android.yml)
+![GitHub release (with filter)](https://img.shields.io/github/v/release/kimoandroid/PatternLockView)
+![Repo Size](https://img.shields.io/github/repo-size/kimoandroid/PatternLockView)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/839fd92cb64e410a977f0b4835a535f3)](https://app.codacy.com/gh/kimoandroid/PatternLockView/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Lines Of Code](https://tokei.rs/b1/github/kimoandroid/PatternLockView?category=code)](https://github.com/kimoandroid/PatternLockView)
+
+[![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin)
+[![Discord](https://img.shields.io/discord/954020097381502976.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/ptz6VByDbv)
+
+![PatternLockView](https://github.com/kimoandroid/PatternLockView/assets/69405523/248b0c5e-6c50-4530-b250-f060095ffe44)
 
 
 This library allows you to implement pattern locking mechanism in your app **easily and quickly**. It is very easy to use and there are **plenty of customization options** available to change the functionality and look-and-feel of this view to match your needs.
 
-It also **supports RxJava 2 view bindings**, so if you are a fan of reactive programming (just like me), you can get a stream of updates as the user draws the pattern.
+It also **supports RxJava3 view bindings**, so if you are a fan of reactive programming (just like me), you can get a stream of updates as the user draws the pattern.
 
-![PatternLockView](https://github.com/aritraroy/PatternLockView/blob/master/screenshots/pattern_lock_view_small.gif?raw=true) ![PatternLockView](https://github.com/aritraroy/PatternLockView/blob/master/screenshots/pattern_lock_view_2_small.gif?raw=true)
+## Preview
+![PatternLockView](https://github.com/kimoandroid/PatternLockView/assets/69405523/1b004c21-be05-481b-80c5-eb4a61939f1f)
+![PatternLockView](https://github.com/kimoandroid/PatternLockView/assets/69405523/1748da32-a654-4544-a85c-dffe09c53792)
 
 
-# Download
-
-This library is available in **jCenter** which is the default Maven repository used in Android Studio.
-
-## Gradle 
-```gradle
-dependencies {
-    // other dependencies here
-    
-    compile 'com.github.kimoandroid:patternlockview:1.0'
-    // Optional, for RxJava2 adapter
-    compile 'com.github.kimoandroid:patternlockview_reactive:1.0'
-}
-```
-
-### Spread Some :heart:
-[![GitHub stars](https://img.shields.io/github/stars/aritraroy/PatternLockView.svg?style=social&label=Star)](https://github.com/aritraroy) [![GitHub followers](https://img.shields.io/github/followers/aritraroy.svg?style=social&label=Follow)](https://github.com/aritraroy)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/aritraroy.svg?style=social)](https://twitter.com/aritraroy) 
+## Example App
+[https://github.com/kimoandroid/PatternLockView/tree/master/app](https://github.com/kimoandroid/PatternLockView/tree/master/app)
 
 
 # Usage
-We recommend you to check the [sample project](https://github.com/aritraroy/PatternLockView/blob/master/app/src/main/java/com/andrognito/patternlockdemo/MainActivity.java) to get a complete understanding of the library. The step-by-step implementation guide is as follows.
+
+## Gradle
+> Add this line to root `build.gradle` at allprojects block code:
+```gradle
+allprojects {
+  repositories {
+   //...
+   maven { url 'https://jitpack.io' }
+  }
+ }
+ ```
+
+> then add this line into your `build.gradle` app level.
+```gradle
+dependencies {
+    implementation 'com.github.kimoandroid:patternlockview:1.0'
+
+    // Optional, for RxJava3 adapter
+    implementation 'com.github.kimoandroid:patternlockview_reactive:1.0'
+}
+```
+
+<br>
 
 ### Step 1
-
-Place the view in your XML layout file.
-
+Add this widget into your `xml` activity file
 ```xml
     <co.encept.patternlockview.PatternLockView
         android:id="@+id/pattern_lock_view"
@@ -89,10 +103,11 @@ private PatternLockViewListener mPatternLockViewListener = new PatternLockViewLi
 
 And that's it! Your PatternLockView is ready to rock. You might also want to remove the listeners when not needed,         `removePatternLockListener(mPatternLockViewListener);`
 
+<br><br>
 
 ### Step 3 (Optional: ReactiveX Interface)
 
-For the RxJava fanboys, this library supports RxJava 2 view bindings. You can subscribe to this view to get a stream of pattern change updates.
+For the RxJava fanboys, this library supports RxJava3 view bindings. You can subscribe to this view to get a stream of pattern change updates.
 
 ```java
 RxPatternLockView.patternChanges(mPatternLockView)
@@ -114,14 +129,16 @@ RxPatternLockView.patternChanges(mPatternLockView)
                 });
 ```
 
-If you are not interested in getting the compound event, you should subscribe to `patternComplete()` and/or `patternProgress()` for the specific updates. Have a detailed look [here](https://github.com/aritraroy/PatternLockView/blob/master/patternlockview-rxadapter/src/main/java/com/andrognito/rxpatternlockview/RxPatternLockView.java).
+If you are not interested in getting the compound event, you should subscribe to `patternComplete()` and/or `patternProgress()` for the specific updates. Have a detailed look [here](https://github.com/kimoandroid/PatternLockView/blob/master/patternlockview_reactive/src/main/java/co/encept/rxpatternlockview/RxPatternLockView.java).
+
+<br>
 
 # Customization
-
 There are several customization options available which you can use to completely change the look-and-feel and functionality of this view to match your needs.
 
-### XML (Quick and Easy)
+<br>
 
+### XML (Quick and Easy)
 You can add various attributes to the PatternLockView from your XML layout.
 
 ```xml
@@ -138,8 +155,9 @@ You can add various attributes to the PatternLockView from your XML layout.
   app:pathEndAnimationDuration="100"                      // Change the duration of the path end animaiton
 ```
 
-### JAVA (Programatically)
+<br>
 
+### JAVA (Programatically)
 You can also programatically change the properties of the view, thereby having more control over it.
 
 ```java
@@ -162,37 +180,25 @@ mPatternLockView.setPathEndAnimationDuration(100);
 
 ```
 
-# Contribution
+<br>
 
-This library is inspired from AOSP's [LockPatternView](https://github.com/android/platform_frameworks_base/blob/master/core/java/com/android/internal/widget/LockPatternView.java). There are lots of improvements and customization options added so that you can get started without any hassle. If you find a bug or would like to improve any aspect of it, feel free to contribute with pull requests.
+#### That's All don't forget to star the project & fork if you want to develop the library.
+
+#### Powered by [Encept Ltd](https://encept.co).
+
+#### * This Library Was Forked From: [https://github.com/aritraroy/PatternLockView](https://github.com/aritraroy/PatternLockView)
+
+<br>
+
+## Contributors
+<a href="https://github.com/kimoandroid/PatternLockView/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=kimoandroid/PatternLockView" />
+</a>
+<br>
+
+## Stargazers
+[![Stargazers repo roster for @kimoandroid/PatternLockView](https://reporoster.com/stars/kimoandroid/PatternLockView)](https://github.com/kimoandroid/PatternLockView/stargazers)
 
 
-# About The Author
-
-### Aritra Roy
-
-Android & Backend Developer. Blogger. Designer. Fitness Enthusiast.
-
-<a href="https://play.google.com/store/apps/details?id=com.codexapps.andrognito&hl=en"><img src="https://github.com/aritraroy/social-icons/blob/master/play-store-icon.png?raw=true" width="60"></a> <a href="https://blog.aritraroy.in/"><img src="https://github.com/aritraroy/social-icons/blob/master/medium-icon.png?raw=true" width="60"></a>
-<a href="http://stackoverflow.com/users/2858654/aritra-roy"><img src="https://github.com/aritraroy/social-icons/blob/master/stackoverflow-icon.png?raw=true" width="60"></a>
-<a href="https://twitter.com/aritraroy"><img src="https://github.com/aritraroy/social-icons/blob/master/twitter-icon.png?raw=true" width="60"></a>
-<a href="http://linkedin.com/in/aritra-roy"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="60"></a>
-
-
-# License
-
-```
-Copyright 2017 aritraroy
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+## Forkers
+[![Forkers repo roster for @kimoandroid/PatternLockView](https://reporoster.com/forks/kimoandroid/PatternLockView)](https://github.com/kimoandroid/PatternLockView/network/members)
