@@ -23,9 +23,9 @@ This library is available in **jCenter** which is the default Maven repository u
 dependencies {
     // other dependencies here
     
-    compile 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    compile 'com.github.kimoandroid:patternlockview:1.0'
     // Optional, for RxJava2 adapter
-    compile 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
+    compile 'com.github.kimoandroid:patternlockview_reactive:1.0'
 }
 ```
 
@@ -42,7 +42,7 @@ We recommend you to check the [sample project](https://github.com/aritraroy/Patt
 Place the view in your XML layout file.
 
 ```xml
-    <com.andrognito.patternlockview.PatternLockView
+    <co.encept.patternlockview.PatternLockView
         android:id="@+id/pattern_lock_view"
         android:layout_width="280dp"
         android:layout_height="280dp"/>

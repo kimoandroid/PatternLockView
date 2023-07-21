@@ -1,32 +1,32 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     repositories {
-        jcenter()
+        google()
+        mavenCentral()
+        mavenLocal()
+        gradlePluginPortal()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2' }
+        maven { url 'https://mvnrepository.com/repos/central' }
+        maven { url = uri("https://storage.googleapis.com/r8-releases/raw") }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        google()
+        mavenCentral()
+        mavenLocal()
+        gradlePluginPortal()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2' }
+        maven { url 'https://mvnrepository.com/repos/central' }
+        maven { url = uri("https://storage.googleapis.com/r8-releases/raw") }
     }
-}
-
-ext {
-    minSdkVersion = 14
-    targetSdkVersion = 25
-    compileSdkVersion = 25
-    buildToolsVersion = '25.0.2'
-
-    // dependencies
-    supportV7 = 'com.android.support:appcompat-v7:25.3.0'
-    rxJava = 'io.reactivex.rxjava2:rxjava:2.0.2'
-    rxAndroid = 'io.reactivex.rxjava2:rxandroid:2.0.0'
 }
 
 task clean(type: Delete) {

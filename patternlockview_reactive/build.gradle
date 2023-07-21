@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'co.encept.patternlockview'
+    namespace 'co.encept.rxpatternlockview'
     compileSdk 34
 
     defaultConfig {
@@ -42,13 +42,18 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
+
+    implementation project(':patternlockview')
 }
 
 publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.kimoandroid'
-            artifactId = 'patternlockview'
+            artifactId = 'patternlockview_reactive'
             version = '1.0'
 
             afterEvaluate {

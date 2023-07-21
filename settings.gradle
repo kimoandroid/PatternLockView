@@ -1,1 +1,1 @@
-include ':app', ':patternlockview', ':patternlockview-reactive'
+include ':app', ':patternlockview', ':patternlockview_reactive'
